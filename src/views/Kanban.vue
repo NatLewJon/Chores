@@ -1,6 +1,6 @@
 <template>
   <div class="kanban">
-    <h2>Kanban Board</h2>
+    <h2>Chores</h2>
     <v-row class="mb-6">
       <v-col v-for="[column] in columns" :key="column" class="px-1">
         <v-subheader class="pa-0">{{ column }}</v-subheader>

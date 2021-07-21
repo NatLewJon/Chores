@@ -79,8 +79,9 @@ export default {
   data: () => ({
     drawer: null,
     links: [
-      ['mdi-view-dashboard-variant', 'Chore Board'],
+      ['mdi-view-dashboard-variant', 'Chores'],
       ['mdi-calendar-month', 'Calendar'],
+      ['mdi-chart-areaspline-variant','Analytics'],
       ['mdi-cog', 'Settings'],
     ],
   }),
