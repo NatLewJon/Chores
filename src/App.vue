@@ -1,48 +1,3 @@
-<!--<template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view/>
-    </v-main>
-  </v-app>
-</template>-->
-
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" app>
@@ -53,7 +8,7 @@
       <v-divider></v-divider>
 
       <v-list>
-        <v-list-item v-for="[icon, text] in links" :key="icon" link>
+        <v-list-item v-for="[icon, text, link] in links" :key="icon" link :href="[link]">
           <v-list-item-icon>
             <v-icon>{{ icon }}</v-icon>
           </v-list-item-icon>
@@ -79,10 +34,10 @@ export default {
   data: () => ({
     drawer: null,
     links: [
-      ['mdi-view-dashboard-variant', 'Chores'],
-      ['mdi-calendar-month', 'Calendar'],
-      ['mdi-chart-areaspline-variant','Analytics'],
-      ['mdi-cog', 'Settings'],
+      ['mdi-view-dashboard-variant', 'Chores', '/'],
+      ['mdi-calendar-month', 'Calendar', '/calendar'],
+      ['mdi-chart-areaspline-variant','Analytics', '/analytics'],
+      ['mdi-cog', 'Settings', '/settings'],
     ],
   }),
 };
