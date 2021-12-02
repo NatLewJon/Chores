@@ -1,6 +1,9 @@
 <template>
   <div class="kanban">
-    <h2>Chores</h2>
+    <div class="d-flex">
+      <h2 class="d-inline">Chores</h2>
+      <AddChore class="d-inline"/>
+    </div>
     <v-row class="mb-6">
       <v-col v-for="column in columns" :key="column.columnId" class="px-1">
         <v-subheader class="pa-0">{{ column.columnName }}</v-subheader>
@@ -35,17 +38,18 @@
               ></v-list-item-avatar>
             </v-list-item>
           </v-card>
-        </v-sheet>\
+        </v-sheet>
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
+import AddChore from "../components/AddChore.vue"
 export default {
   name: 'Kanban',
 
-  components: {},
+  components: {AddChore},
 
   methods: {
     listGet(id) {
