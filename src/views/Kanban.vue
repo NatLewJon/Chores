@@ -1,10 +1,15 @@
 <template>
-  <div class="kanban">
-    <h2>Chores</h2>
-    <v-row class="mb-6">
-      <v-col v-for="column in columns" :key="column.columnId" class="px-1">
+  <Authenticated>
+    <template v-slot:header>
+      <v-row class="mb-0 mt-1">
+        <h2>Calendar</h2>
+      </v-row>
+    </template>
+
+    <v-row class="mb-6 mt-0">
+      <v-col v-for="column in columns" :key="column.columnId" class="px-1 py-0">
         <v-subheader class="pa-0">{{ column.columnName }}</v-subheader>
-        <v-sheet color="grey lighten-2" class="pa-1" height="80vh"
+        <v-sheet color="grey lighten-2" class="pa-1" height="88vh"
                  @drop="onDrop($event,column.columnId)"
                  @dragover.prevent
                  @dragenter.prevent rounded
@@ -35,17 +40,20 @@
               ></v-list-item-avatar>
             </v-list-item>
           </v-card>
-        </v-sheet>\
+        </v-sheet>
       </v-col>
     </v-row>
-  </div>
+  </Authenticated>
 </template>
 
 <script>
+import Authenticated from "./Layouts/Authenticated";
 export default {
   name: 'Kanban',
 
-  components: {},
+  components: {
+    Authenticated
+  },
 
   methods: {
     listGet(id) {

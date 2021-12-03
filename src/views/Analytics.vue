@@ -1,19 +1,29 @@
 <template>
-  <div class="analytics">
-    <h2>Analytics</h2>
+  <Authenticated>
+    <template v-slot:header>
+      <v-row class="mb-0 mt-1">
+        <h2>Calendar</h2>
+      </v-row>
+    </template>
+
     <Graph/>
-  </div>
+
+  </Authenticated>
 </template>
 
 <script>
+import Authenticated from "./Layouts/Authenticated";
 import Graph from "../components/Graph.vue";
 
 export default {
-    name: 'analytics',
-    components: {Graph},
-    data: () => ({
+  name: 'analytics',
 
-    })
+  components: {
+    Graph,
+    Authenticated
+  },
+
+  data: () => ({})
 }
 </script>
 
