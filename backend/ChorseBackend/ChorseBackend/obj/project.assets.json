@@ -7336,11 +7336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\Chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
+      "projectUniqueName": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
       "projectName": "ChorseBackend",
-      "projectPath": "C:\\Projects\\Chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
+      "projectPath": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
       "packagesPath": "C:\\Users\\nlj20\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\Chores\\backend\\ChorseBackend\\ChorseBackend\\obj\\",
+      "outputPath": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

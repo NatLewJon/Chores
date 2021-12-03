@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VXgbZkDPQCXO3S+YUii4mD48J0gdA/NKiK+VvmuFb3jnnjwoZQNaQIQZNMqByykYmckCD647TW8VGbz9gvT5aA==",
+  "dgSpecHash": "7Dwb0A/CP2O1x6/5WUmSDyny4fpOzaysmWO29oTmELltF0Tf/Nn8quCbZztnsOG0nUOxGF3GKmh494NIjx4gFw==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
+  "projectFilePath": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nlj20\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\nlj20\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
