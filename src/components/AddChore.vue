@@ -10,7 +10,7 @@
             fab
             dark
             small
-            color="grey"
+            color="green"
             v-bind="attrs"
             v-on="on"
         >

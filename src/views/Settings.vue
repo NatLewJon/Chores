@@ -2,7 +2,7 @@
   <Authenticated>
     <template v-slot:header>
       <v-row class="mb-0 mt-1">
-        <h2>Calendar</h2>
+        <h2>Settings</h2>
       </v-row>
     </template>
 
