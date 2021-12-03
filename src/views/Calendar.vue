@@ -1,13 +1,25 @@
 <template>
-  <div class="calendar">
-    <h2>Calendar</h2>
+  <Authenticated>
+    <template v-slot:header>
+      <v-row class="mb-0 mt-1">
+        <h2>Calendar</h2>
+      </v-row>
+    </template>
 
-  </div>
+
+
+  </Authenticated>
 </template>
 
 <script>
-export default {
+import Authenticated from "./Layouts/Authenticated";
 
+export default {
+  name: "Calendar",
+
+  components: {
+    Authenticated
+  }
 }
 </script>
 
