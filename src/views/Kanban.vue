@@ -2,7 +2,10 @@
   <Authenticated>
     <template v-slot:header>
       <v-row class="mb-0 mt-1">
-        <h2>Calendar</h2>
+        <div class="d-flex">
+           <h2 class="d-inline">Chores</h2>
+           <AddChore class="d-inline"/>
+        </div>
       </v-row>
     </template>
 
@@ -47,12 +50,15 @@
 </template>
 
 <script>
+import AddChore from "../components/AddChore.vue"
 import Authenticated from "./Layouts/Authenticated";
+
 export default {
   name: 'Kanban',
 
   components: {
     Authenticated
+    AddChore
   },
 
   methods: {
