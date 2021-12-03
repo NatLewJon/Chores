@@ -50,14 +50,14 @@
 </template>
 
 <script>
-import AddChore from "../components/AddChore.vue"
-import Authenticated from "./Layouts/Authenticated";
+import AddChore from "../components/AddChore"
+import Authenticated from "./Layouts/Authenticated"
 
 export default {
   name: 'Kanban',
 
   components: {
-    Authenticated
+    Authenticated,
     AddChore
   },
 
