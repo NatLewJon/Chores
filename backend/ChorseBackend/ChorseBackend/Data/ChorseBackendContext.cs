@@ -15,5 +15,7 @@ namespace ChorseBackend.Data
         }
 
         public DbSet<ChorseBackend.Models.Client> Client { get; set; }
+
+        public DbSet<ChorseBackend.Models.Chores> Chores { get; set; }
     }
 }

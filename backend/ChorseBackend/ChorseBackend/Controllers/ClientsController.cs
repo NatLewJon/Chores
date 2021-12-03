@@ -100,22 +100,6 @@ namespace ChorseBackend.Controllers
             return NoContent();
         }
 
-        // GET: api/Clients/firstName/5
-        [HttpGet]
-        [Route("firstName")]
-        public async Task<IActionResult> GetFirstName(int id)
-        {
-            var client = await _context.Client.FindAsync(id);
-            if (client == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(client.first_name);
-        }
-
-
-
         private bool ClientExists(int id)
         {
             return _context.Client.Any(e => e.id == id);
