@@ -34,6 +34,8 @@
 
 <script>
 import Guest from "../Layouts/Guest";
+import axios from "axios";
+import router from "../../router";
 
 export default {
   name: "Login",
@@ -47,6 +49,7 @@ export default {
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
     ],
+    api_url: "https://localhost:44372",
     form: {
       username: "",
       password: "",
@@ -55,7 +58,16 @@ export default {
 
   methods: {
     submit() {
-      console.log(this.form)
+      axios({
+        method: 'post',
+        url: this.api_url+'/api/Authenticate/login',
+        data: this.form
+      }).then(response => {
+        localStorage.setItem('token', response.data.token);
+        router.push('/');
+      }).catch(error => {
+        console.log(error);
+      });
     }
   }
 }
