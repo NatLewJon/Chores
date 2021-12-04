@@ -80,11 +80,10 @@ export default {
         return;
       }
 
-      axios.post(this.api_url+'/api/Clients', {
-        username: this.form.username,
-        first_name: this.form.first_name,
-        last_name: this.form.last_name,
-        password: this.form.password
+      axios({
+        method: 'post',
+        url: this.api_url+'/api/Authenticate/register',
+        data: this.form
       }).then(response => {
         console.log(response);
       }).catch(error => {

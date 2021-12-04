@@ -7334,25 +7334,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samma\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\nlj20\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samma\\Documents\\GitHub\\Chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
+      "projectUniqueName": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
       "projectName": "ChorseBackend",
-      "projectPath": "C:\\Users\\samma\\Documents\\GitHub\\Chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
-      "packagesPath": "C:\\Users\\samma\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samma\\Documents\\GitHub\\Chores\\backend\\ChorseBackend\\ChorseBackend\\obj\\",
+      "projectPath": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\ChorseBackend.csproj",
+      "packagesPath": "C:\\Users\\nlj20\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\Chores\\chores\\backend\\ChorseBackend\\ChorseBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\samma\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\nlj20\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -7418,7 +7418,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

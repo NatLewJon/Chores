@@ -404,3 +404,4 @@ C:\Users\samma\Documents\GitHub\Chores\backend\ChorseBackend\ChorseBackend\obj\D
 C:\Users\samma\Documents\GitHub\Chores\backend\ChorseBackend\ChorseBackend\obj\Debug\net5.0\ref\ChorseBackend.dll
 C:\Users\samma\Documents\GitHub\Chores\backend\ChorseBackend\ChorseBackend\obj\Debug\net5.0\ChorseBackend.pdb
 C:\Users\samma\Documents\GitHub\Chores\backend\ChorseBackend\ChorseBackend\obj\Debug\net5.0\ChorseBackend.genruntimeconfig.cache
+C:\Projects\Chores\chores\backend\ChorseBackend\ChorseBackend\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
