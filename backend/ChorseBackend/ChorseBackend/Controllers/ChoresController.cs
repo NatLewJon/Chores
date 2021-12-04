@@ -86,12 +86,11 @@ namespace ChorseBackend.Controllers
             {
                 Client client = _context.Client.FirstOrDefault(x => x.id == chores.assignee.id);
 
-                
                 if(client == null)
                 {
                     return NotFound("Client was not found");
                 }
-                
+                chores.assignee = client;
             }
            
             _context.Chores.Add(chores);
