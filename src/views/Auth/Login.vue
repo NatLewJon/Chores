@@ -5,23 +5,27 @@
       <h1 class="d-flex justify-center">Chores</h1>
         <v-card class="px-4 py-4 mt-4" width="25vw" elevation="4" >
           <h2 class="d-flex justify-center">Log In</h2>
-          <v-text-field
-              label="Username"
-              :rules="rules"
-              hide-details="auto"
-          ></v-text-field>
-          <v-text-field
-              label="Password"
-              :rules="rules"
-              type="password"
-              hide-details="auto"
-          ></v-text-field>
-          <v-btn class="mt-2" block color="green" dark>
-            <v-icon>
-              mdi-login
-            </v-icon>
-            Log in
-          </v-btn>
+          <form @submit.prevent="submit">
+            <v-text-field
+                label="Username"
+                :rules="rules"
+                v-model="form.username"
+                hide-details="auto"
+            ></v-text-field>
+            <v-text-field
+                label="Password"
+                :rules="rules"
+                type="password"
+                v-model="form.password"
+                hide-details="auto"
+            ></v-text-field>
+            <v-btn class="mt-2" block color="green" type="submit" dark>
+              <v-icon>
+                mdi-login
+              </v-icon>
+              Log in
+            </v-btn>
+          </form>
         </v-card>
       </v-card>
     </v-card>
@@ -43,6 +47,16 @@ export default {
       value => !!value || 'Required.',
       value => (value && value.length >= 3) || 'Min 3 characters',
     ],
+    form: {
+      username: "",
+      password: "",
+    }
   }),
+
+  methods: {
+    submit() {
+      console.log(this.form)
+    }
+  }
 }
 </script>

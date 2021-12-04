@@ -18,6 +18,8 @@ namespace ChorseBackend
 {
     public class Startup
     {
+
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,7 +39,14 @@ namespace ChorseBackend
 
             services.AddDbContext<ChorseBackendContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ChorseBackendContext")));
+
+
+            services.AddCors();
         }
+
+
+
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -52,6 +61,12 @@ namespace ChorseBackend
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials());
 
             app.UseAuthorization();
 
