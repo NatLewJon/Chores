@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ChorseBackend.Data;
 using ChorseBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ChorseBackend.Controllers
 {
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientsController : ControllerBase
