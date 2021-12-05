@@ -15,7 +15,7 @@
                     v-for="[icon, text, link] in links"
                     :key="icon"
                     link
-                    :href="[link]"
+                    @click="href(link)"
                 >
                     <v-list-item-icon>
                         <v-icon>{{ icon }}</v-icon>
@@ -79,6 +79,9 @@
                 localStorage.clear();
                 this.$router.push('/login');
             },
+            href(link) {
+                this.$router.push(link)
+            }
         },
     };
 </script>
