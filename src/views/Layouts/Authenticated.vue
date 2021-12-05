@@ -33,6 +33,7 @@
                         block
                         color="error"
                         dark
+                        @click="logout"
                     >
                         <v-icon>
                             mdi-logout
@@ -72,6 +73,13 @@
                 ['mdi-cog', 'Settings', '/settings'],
             ],
         }),
+        //pointless comment on a pointless line
+        methods: {
+            logout() {
+                localStorage.clear();
+                this.$router.push('/login');
+            },
+        },
     };
 </script>
 

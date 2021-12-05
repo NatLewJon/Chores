@@ -19,18 +19,22 @@
                     <form @submit.prevent="submit">
                         <v-text-field
                             label="Username"
-                            :rules="rules"
                             v-model="form.username"
                             prepend-icon="mdi-account-outline"
                             hide-details="auto"
+                            :error-messages="usernameErrors"
+                            @input="$v.form.username.$touch()"
+                            @blur="$v.form.username.$touch()"
                         ></v-text-field>
                         <v-text-field
                             label="Password"
-                            :rules="rules"
                             prepend-icon="mdi-lock-outline"
                             type="password"
                             v-model="form.password"
                             hide-details="auto"
+                            :error-messages="passwordErrors"
+                            @input="$v.form.password.$touch()"
+                            @blur="$v.form.password.$touch()"
                         ></v-text-field>
                         <v-btn
                             class="mt-2"
@@ -61,6 +65,7 @@
     import Guest from '../Layouts/Guest';
     import axios from 'axios';
     import router from '../../router';
+    import { required } from 'vuelidate/lib/validators';
 
     export default {
         name: 'Login',
@@ -70,17 +75,34 @@
         },
 
         data: () => ({
-            rules: [
-                value => !!value || 'Required.',
-                value => (value && value.length >= 3) || 'Min 3 characters',
-            ],
             api_url: 'https://localhost:44372',
             form: {
                 username: '',
                 password: '',
             },
         }),
-
+        validations: {
+            form: {
+                username: { required },
+                password: { required },
+            },
+        },
+        computed: {
+            usernameErrors() {
+                const errors = [];
+                if (!this.$v.form.username.$dirty) return errors;
+                !this.$v.form.username.required &&
+                    errors.push('Username is required');
+                return errors;
+            },
+            passwordErrors() {
+                const errors = [];
+                if (!this.$v.form.password.$dirty) return errors;
+                !this.$v.form.password.required &&
+                    errors.push('Password is required');
+                return errors;
+            },
+        },
         methods: {
             submit() {
                 axios({
