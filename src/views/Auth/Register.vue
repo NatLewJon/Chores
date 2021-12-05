@@ -2,14 +2,12 @@
     <Guest>
         <v-card
             class="d-flex align-center overflow-hidden"
-            color="grey lighten-4"
             flat
             height="100vh"
         >
             <v-card
                 class="mx-auto"
                 flat
-                color="grey lighten-4"
             >
                 <h1 class="d-flex justify-center">Chores</h1>
                 <v-card
@@ -67,7 +65,7 @@
                         </v-btn>
                         <router-link
                             class="d-flex justify-center pt-2"
-                            to="/register"
+                            to="/login"
                         >
                             Already have an account?
                         </router-link>
