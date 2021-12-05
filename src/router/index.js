@@ -3,26 +3,40 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+const beforeEnter = (to, from, next) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    next()
+    return true;
+  }
+  next({ path: '/login'});
+  return false;
+}
+
 const routes = [
   {
     path: '/',
     name: 'Kanban',
-    component: () => import('../views/Kanban.vue')
+    component: () => import('../views/Kanban.vue'),
+    beforeEnter
   },
   {
     path: '/calendar',
     name: 'Calendar',
-    component: () => import('../views/Calendar.vue')
+    component: () => import('../views/Calendar.vue'),
+    beforeEnter
   },
   {
     path: '/analytics',
     name: 'Analytics',
-    component: () => import('../views/Analytics.vue')
+    component: () => import('../views/Analytics.vue'),
+    beforeEnter
   },
   {
     path: '/settings',
     name: 'Settings',
-    component: () => import('../views/Settings.vue')
+    component: () => import('../views/Settings.vue'),
+    beforeEnter
   },
   {
     path: '/login',
