@@ -44,6 +44,19 @@ namespace ChorseBackend.Controllers
             return chores;
         }
 
+        [HttpGet]
+        [Route("ByUser/{clientId}")]
+        public async Task<ActionResult<IEnumerable<Chores>>> GetChoresByUser(int clientId)
+        {
+            var chores = await _context.Chores.Where(x => x.assignee.id == clientId).ToListAsync();
+            if (chores == null)
+            {
+                return NotFound();
+            }
+
+            return chores;
+        }
+
         // PUT: api/Chores/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
