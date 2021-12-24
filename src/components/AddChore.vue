@@ -35,7 +35,7 @@
                 <v-card-actions>
                     <v-spacer></v-spacer>
                     <v-btn
-                        color="primary"
+                        color="success"
                         text
                         @click="dialog = false"
                     >
@@ -50,6 +50,8 @@
 
 <script>
     export default {
+        name: "AddChore.vue",
+
         data() {
             return {
                 dialog: false,

@@ -1,9 +1,7 @@
 <template>
   <Authenticated>
     <template v-slot:header>
-      <v-row class="mb-0 mt-1">
-        <h2>Analytics</h2>
-      </v-row>
+        Analytics
     </template>
 
     <Graph/>

@@ -32,7 +32,7 @@ namespace ChorseBackend.Migrations
                     b.Property<string>("description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("kanban_id")
+                    b.Property<int?>("kanbanId")
                         .HasColumnType("int");
 
                     b.Property<string>("name")
@@ -47,6 +47,8 @@ namespace ChorseBackend.Migrations
                     b.HasKey("id");
 
                     b.HasIndex("assigneeid");
+
+                    b.HasIndex("kanbanId");
 
                     b.ToTable("Chores");
                 });
@@ -75,13 +77,69 @@ namespace ChorseBackend.Migrations
                     b.ToTable("Client");
                 });
 
+            modelBuilder.Entity("ChorseBackend.Models.Columns", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("KanbanId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("KanbanId");
+
+                    b.ToTable("Columns");
+                });
+
+            modelBuilder.Entity("ChorseBackend.Models.Kanban", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Kanban");
+                });
+
             modelBuilder.Entity("ChorseBackend.Models.Chores", b =>
                 {
                     b.HasOne("ChorseBackend.Models.Client", "assignee")
                         .WithMany()
                         .HasForeignKey("assigneeid");
 
+                    b.HasOne("ChorseBackend.Models.Kanban", "kanban")
+                        .WithMany()
+                        .HasForeignKey("kanbanId");
+
                     b.Navigation("assignee");
+
+                    b.Navigation("kanban");
+                });
+
+            modelBuilder.Entity("ChorseBackend.Models.Columns", b =>
+                {
+                    b.HasOne("ChorseBackend.Models.Kanban", null)
+                        .WithMany("Columns")
+                        .HasForeignKey("KanbanId");
+                });
+
+            modelBuilder.Entity("ChorseBackend.Models.Kanban", b =>
+                {
+                    b.Navigation("Columns");
                 });
 #pragma warning restore 612, 618
         }

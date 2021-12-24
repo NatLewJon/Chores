@@ -49,10 +49,11 @@
                 class="px-6 py-0"
                 fluid
             >
+              <div class="header">
                 <slot
-                    class="mx-4"
                     name="header"
                 />
+              </div>
 
                 <slot />
             </v-container>
@@ -67,7 +68,7 @@
         data: () => ({
             drawer: null,
             links: [
-                ['mdi-view-dashboard-variant', 'Chores', '/'],
+                ['mdi-view-dashboard-variant', 'Kanban', '/'],
                 ['mdi-calendar-month', 'Calendar', '/calendar'],
                 ['mdi-chart-areaspline-variant', 'Analytics', '/analytics'],
                 ['mdi-cog', 'Settings', '/settings'],
@@ -87,4 +88,11 @@
 </script>
 
 <style scoped>
+.header {
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  font-weight: bold;
+  font-size: larger;
+}
 </style>

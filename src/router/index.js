@@ -18,7 +18,7 @@ const routes = [
     path: '/',
     name: 'Kanban',
     component: () => import('../views/Kanban.vue'),
-    beforeEnter
+    beforeEnter,
   },
   {
     path: '/calendar',

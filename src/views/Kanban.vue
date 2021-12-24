@@ -1,16 +1,39 @@
 <template>
     <Authenticated>
         <template v-slot:header>
-            <v-row class="mb-0 mt-1">
-                <div class="d-flex">
-                    <h2 class="d-inline">Chores</h2>
-                    <AddChore class="d-inline" />
-                </div>
-            </v-row>
+          Kanban
         </template>
 
-        <v-row class="mb-6 mt-0">
+        <v-row class="my-3">
+          <div class="d-flex mx-auto">
+            <h2 class="d-inline">Chores</h2>
+            <AddChore class="d-inline" />
+          </div>
+        </v-row>
+
+        <v-row class="mb-6 mt-0" v-if="this.boards !== null">
             <v-col
+                v-for="(board, index) in this.boards"
+                :key="index">
+                <v-card
+                    class="pa-2"
+                    outlined
+                    tile>
+                    <span v-if="board.title === null">Untitled</span>
+                    <span v-else>{{ board.title }}</span>
+                </v-card>
+            </v-col>
+        </v-row>
+
+        <v-row class="mb-6 mt-0">
+            <v-card
+                class="d-flex align-center overflow-hidden mx-auto pa-2"
+                flat
+                height="40vh"
+            >
+                <AddBoard></AddBoard>
+            </v-card>
+  <!--            <v-col
                 v-for="column in columns"
                 :key="column.columnId"
                 class="px-1 py-0"
@@ -52,7 +75,7 @@
                         </v-list-item>
                     </v-card>
                 </v-sheet>
-            </v-col>
+            </v-col>-->
         </v-row>
     </Authenticated>
 </template>
@@ -60,16 +83,64 @@
 <script>
     import AddChore from '../components/AddChore';
     import Authenticated from './Layouts/Authenticated';
+    import AddBoard from "../components/AddBoard";
+    import axios from 'axios';
 
     export default {
         name: 'Kanban',
 
         components: {
+            AddBoard,
             Authenticated,
             AddChore,
         },
 
+        data: () => ({
+            api_url: 'https://localhost:44372',
+            drawer: null,
+            boards: null,
+            board: null,
+            /*columns: [
+              {
+                columnName: '',
+                columnId: 1,
+              },
+              {
+                columnName: 'In Progress',
+                columnId: 2,
+              },
+              {
+                columnName: 'Done',
+                columnId: 3,
+              },
+            ],
+            items: [
+            {
+              id: 0,
+              title: 'Item 1',
+              list: 1,
+            },
+            {
+              id: 1,
+              title: 'Item 2',
+              list: 2,
+            },
+            {
+              id: 2,
+              title: 'Item 3',
+              list: 2,
+            },
+          ],*/
+        }),
+
         methods: {
+            getBoards() {
+                axios.get(this.api_url + '/api/Kanbans').then(response => {
+                    this.boards = response.data;
+                }).catch(error => {
+                    console.log(error);
+                });
+            },
             listGet(id) {
                 return this.items.filter(item => item.list === id);
             },
@@ -85,39 +156,8 @@
             },
         },
 
-        data: () => ({
-            drawer: null,
-            columns: [
-                {
-                    columnName: 'Todo',
-                    columnId: 1,
-                },
-                {
-                    columnName: 'In Progress',
-                    columnId: 2,
-                },
-                {
-                    columnName: 'Done',
-                    columnId: 3,
-                },
-            ],
-            items: [
-                {
-                    id: 0,
-                    title: 'Item 1',
-                    list: 1,
-                },
-                {
-                    id: 1,
-                    title: 'Item 2',
-                    list: 2,
-                },
-                {
-                    id: 2,
-                    title: 'Item 3',
-                    list: 2,
-                },
-            ],
-        }),
+        created() {
+            this.getBoards()
+        },
     };
 </script>
